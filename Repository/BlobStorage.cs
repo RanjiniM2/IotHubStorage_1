@@ -100,7 +100,7 @@ namespace IotHubStorage.Repository
                 
                 BlobContainerClient container = new BlobContainerClient(connectionString, blobName);
                 BlobClient blob = container.GetBlobClient(file);
-                var filepath = @"C:\Users\vmadmin\Downloads\IoT_Storage_Solution\IoT_Storage_Solution\IoT_Storage\NewBlobTest\Dps.pdf";
+                var filepath = @"C:\Users\vmadmin\Desktop\Azure IOT 301\IotHubStorage\NewBlobTest\Dps.pdf";
                 using FileStream uploadFileStream = File.OpenRead(filepath);
                 await blob.UploadAsync(uploadFileStream,true);
                 uploadFileStream.Close();
@@ -149,7 +149,7 @@ namespace IotHubStorage.Repository
         {
             try
             {
-                string path = "";
+                string path = @"C:\\Users\\vmadmin\\Desktop\\Azure IOT 301\\IotHubStorage\\Downloads\\"+file;
                 BlobContainerClient blobContainer = new BlobContainerClient(connectionString,blobName);
                 BlobClient client = blobContainer.GetBlobClient(file);
                 await client.DownloadToAsync(path);

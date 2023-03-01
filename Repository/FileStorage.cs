@@ -86,11 +86,11 @@ namespace IotHubStorage.Repository
             serviceClient = new ShareServiceClient(connectionString);
              var sharedService = serviceClient.GetShareClient(fileSharedName);
             var file = sharedService.GetRootDirectoryClient();
-            var directory = sharedService.GetDirectoryClient(directoryName);
+            var Directory = sharedService.GetDirectoryClient(directoryName);
             List<string> name = new List<string>();
-            //await foreach(ShareFileItem item in Directory.GetDirectoryRoot())
+            await foreach(ShareFileItem item in Directory.GetFilesAndDirectoriesAsync())
             {
-               // name.Add(item.Name)
+                name.Add(item.Name);
             }
             return name;
             
@@ -99,7 +99,7 @@ namespace IotHubStorage.Repository
 
         public static async Task DownloadFile(string directoryName,string fileShareName,string fileName)
         {
-            string path = "";
+            string path = @"C:\Users\vmadmin\Desktop\Azure IOT 301\IotHubStorage\Downloads\" + fileName;
             serviceClient = new ShareServiceClient(connectionString);
             var sharedService = serviceClient.GetShareClient(fileShareName);
             var directory = sharedService.GetDirectoryClient(directoryName);
