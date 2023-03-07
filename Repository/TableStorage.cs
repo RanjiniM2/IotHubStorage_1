@@ -6,7 +6,7 @@ namespace IotHubStorage.Repository
 {
     public class TableStorage
     {
-        public static string connectionString = "";
+        public static string connectionString = "DefaultEndpointsProtocol=https;AccountName=ranjinistorage;AccountKey=2Uylqo9wwaC914dX/G8lRtdHE11uQWd2usBIKzpLDsPBkv37qOwCcHVL3Ay3fEIp37VXenBmFaTl+AStvmrgsA==;EndpointSuffix=core.windows.net";
 
         public static async Task AddTable(string tableName)
         {
