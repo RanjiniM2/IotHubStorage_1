@@ -18,7 +18,7 @@ namespace IotHubStorage.Controllers
         }
 
         [HttpPut("UpdateBlobContent")]
-        public async Task UpdateBlobContent(string blobName,string file)
+        public async Task UpdateBlobContent(string blobName,IFormFile file)
         {
             await BlobStorage.UpdateBlobContent(blobName, file);
             

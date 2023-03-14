@@ -89,7 +89,7 @@ namespace IotHubStorage.Repository
             }
         }
         */
-        public static async Task UpdateBlobContent(string blobName, string file)
+        public static async Task UpdateBlobContent(string blobName, IFormFile file)
         {
             if (string.IsNullOrEmpty(blobName))
             {
@@ -97,13 +97,20 @@ namespace IotHubStorage.Repository
             }
             try
             {
-                
+
                 BlobContainerClient container = new BlobContainerClient(connectionString, blobName);
-                BlobClient blob = container.GetBlobClient(file);
-                var filepath = @"C:\Users\vmadmin\Desktop\Azure IOT 301\IotHubStorage\NewBlobTest\Dps.pdf";
-                using FileStream uploadFileStream = File.OpenRead(filepath);
-                await blob.UploadAsync(uploadFileStream,true);
-                uploadFileStream.Close();
+                string fileName = file.FileName;
+                BlobClient blob = container.GetBlobClient(fileName);
+                /* var filepath = @"C:\Users\vmadmin\Desktop\Azure IOT 301\IotHubStorage\NewBlobTest\Dps.pdf";
+                 using FileStream uploadFileStream = File.OpenRead(filepath);
+                 await blob.UploadAsync(uploadFileStream,true);
+                 uploadFileStream.Close();*/
+
+                await using (var data = file.OpenReadStream())
+                {
+
+                    await blob.UploadAsync(data);
+                }
             }
             catch (Exception ex)
             {

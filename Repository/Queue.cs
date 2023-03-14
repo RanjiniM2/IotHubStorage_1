@@ -6,8 +6,7 @@ namespace IotHubStorage.Repository
 {
     public class Queue
     {
-        public static string connectionString = "DefaultEndpointsProtocol=https;AccountName=ranjinistorageaccount;AccountKey=Th+fbqXgHt5xf/izQ0+d6Tm0nJkz605xCmRoI1OKfa8TNxntxbm+QYwu8A7djpj/IvvmNe1AKue8+ASthqTtfw==;EndpointSuffix=core.windows.net";
-
+        public static string connectionString = "DefaultEndpointsProtocol=https;AccountName=ranjinistorageaccount;AccountKey=o1mq1u00ZLufegLwYxi573Kp2qOoDb1QwRmGG6SUZ10MbR9avwYEQlM2cj0GMpttOkSiGwgD6hkP+AStpAWXQw==;EndpointSuffix=core.windows.net";
 
         public static async Task<bool> CreateQueue(string queueName)
         {
