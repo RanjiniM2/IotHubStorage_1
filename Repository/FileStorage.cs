@@ -6,7 +6,7 @@ namespace IotHubStorage.Repository
 {
     public class FileStorage
     {
-        public static string connectionString = "DefaultEndpointsProtocol=https;AccountName=ranjinistorageaccount;AccountKey=o1mq1u00ZLufegLwYxi573Kp2qOoDb1QwRmGG6SUZ10MbR9avwYEQlM2cj0GMpttOkSiGwgD6hkP+AStpAWXQw==;EndpointSuffix=core.windows.net";s
+        public static string connectionString = "DefaultEndpointsProtocol=https;AccountName=ranjinistorageaccount;AccountKey=o1mq1u00ZLufegLwYxi573Kp2qOoDb1QwRmGG6SUZ10MbR9avwYEQlM2cj0GMpttOkSiGwgD6hkP+AStpAWXQw==;EndpointSuffix=core.windows.net";
         public static ShareServiceClient serviceClient = null;
 
         public static async Task CreateFile(string filename)
